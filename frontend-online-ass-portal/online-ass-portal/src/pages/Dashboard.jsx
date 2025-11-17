@@ -135,9 +135,9 @@ export default function Dashboard() {
           <div className="mt-8 bg-white rounded-xl shadow-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link to="/create-department"
+              <Link to="/departments-list"
                 className="px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium text-center">
-                Add Department
+                 Department List
               </Link>
 
               <Link to="/create-user"
@@ -147,12 +147,12 @@ export default function Dashboard() {
 
               <Link to="/view-users"
                 className="px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium text-center">
-                View Reports
+                View All Users
               </Link>
 
               <Link to="/user-list"
                 className="px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 font-medium text-center">
-                user-list
+                User-List
               </Link>
             </div>
           </div>

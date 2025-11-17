@@ -51,19 +51,19 @@ export const getAllDepartments = async (req, res) => {
       .skip((page - 1) * limit)
       .limit(parseInt(limit));
 
-    // Optional: add number of users per department
-    // const departmentsWithCount = await Promise.all(
-    //   departments.map(async (dept) => {
-    //     const userCount = await User.countDocuments({ department: dept._id });
-    //     return { ...dept.toObject(), userCount };
-    //   })
-    // );
+    // Add number of users per department
+    const departmentsWithCount = await Promise.all(
+      departments.map(async (dept) => {
+        const userCount = await User.countDocuments({ department: dept._id });
+        return { ...dept.toObject(), userCount };
+      })
+    );
 
     res.status(200).json({
       total,
       page: parseInt(page),
       totalPages: Math.ceil(total / limit),
-      departments, 
+      departments: departmentsWithCount,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

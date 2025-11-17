@@ -17,6 +17,7 @@ export default function DepartmentsList() {
       const res = await axiosInstance.get("/admin/departments");
       console.log("hello", res.data);
       setDepartments(res.data.departments || []);
+      console.log(res.data.departments);
     } catch (err) {
       console.error(err);
     } finally {
@@ -90,7 +91,7 @@ export default function DepartmentsList() {
             <p className="text-purple-600">Manage all departments in the system</p>
           </div>
           <button
-            onClick={() => navigate("/departments/create")}
+            onClick={() => navigate("/create-department")}
             className="px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg"
           >
             + Add Department
