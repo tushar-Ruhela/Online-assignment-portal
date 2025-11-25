@@ -14,7 +14,7 @@ console.log(token,process.env.secret)
 
 
 export const isStudent = (req, res, next) => {
-  if (req.user.role !== "student")
+  if (req.user.role !== "Student")
     return res.status(403).json({ message: "Access denied" });
   next();
 };

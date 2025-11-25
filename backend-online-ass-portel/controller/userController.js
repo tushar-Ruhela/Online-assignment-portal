@@ -14,19 +14,19 @@ export const deleteUser = async (req, res) => {
       return res.status(404).json({ success: false, message: "User not found" });
     }
 
-    if (user.role === "Student") {
-      const pendingAssignments = await Assignment.find({
-        studentId: id,
-        status: "Pending",
-      });
+    // if (user.role === "Student") {
+    //   const pendingAssignments = await Assignment.find({
+    //     studentId: id,
+    //     status: "Pending",
+    //   });
 
-      if (pendingAssignments.length > 0) {
-        return res.status(400).json({
-          success: false,
-          message: "Cannot delete this student — they have pending assignments.",
-        });
-      }
-    }
+    //   if (pendingAssignments.length > 0) {
+    //     return res.status(400).json({
+    //       success: false,
+    //       message: "Cannot delete this student — they have pending assignments.",
+    //     });
+    //   }
+    // }
 
     await User.findByIdAndDelete(id);
     return res.status(200).json({
@@ -180,10 +180,10 @@ export const createUser = async (req, res) => {
       <p><strong>Login Details:</strong></p>
       <ul>
         <li><strong>Email:</strong> ${email}</li>
-        <li><strong>Password:</strong> ${plainPassword}</li>
+        <li><strong>Password:</strong> ${password}</li>
         <li><strong>Role:</strong> ${role}</li>
       </ul>
-      <p>You can login here: <a href="http://localhost:5173/login">Login Page</a></p>
+      <p>You can login here: <a href="http://localhost:5173/">Login Page</a></p>
     `;
 
    

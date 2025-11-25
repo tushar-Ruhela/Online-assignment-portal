@@ -6,7 +6,7 @@ import authRoutes from "./Route/authroute.js";
 import adminRoutes from "./Route/adminroutre.js";
 import userRoutes from "./Route/userRoute.js"
 import department from "./Route/department.js"
-
+import student from "./Route/studentRoute.js"
 dotenv.config();
 connectDB();
 
@@ -17,7 +17,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/departments", department);
-app.use("/admin/users", userRoutes);
+app.use("/api/admin/users", userRoutes);
+app.use("/api/student",student)
 
 
 

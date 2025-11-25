@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstance from "../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
 
 const ViewUsers = () => {
@@ -24,7 +24,7 @@ const ViewUsers = () => {
       setLoading(true);
       setError(null);
       const { search, role, department } = filters;
-      const res = await axios.get("http://localhost:5000/admin/users", {
+      const res = await axiosInstance.get("/admin/users", {
         params: { search, role, department, page },
       });
       setUsers(res.data.users);
@@ -39,7 +39,7 @@ const ViewUsers = () => {
 
   const fetchDepartments = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/admin/users/departments");
+      const res = await axiosInstance.get("/admin/users/departments");
       setDepartments(res.data);
     } catch (err) {
       console.error("Failed to fetch departments", err);
@@ -77,7 +77,7 @@ const ViewUsers = () => {
   const handleDelete = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        await axios.delete(`http://localhost:5000/admin/users/${userId}`);
+        await axiosInstance.delete(`/admin/users/${userId}`);
         fetchUsers(pagination.currentPage);
       } catch (err) {
         console.error("Failed to delete user", err);

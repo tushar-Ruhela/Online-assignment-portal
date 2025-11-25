@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstance from "../api/axiosInstance";
 import { useParams, useNavigate } from "react-router-dom";
 
 const EditUser = () => {
@@ -21,7 +21,7 @@ const EditUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/admin/users/${id}/edit`);
+        const res = await axiosInstance.get(`/admin/users/${id}/edit`);
         setFormData({
           name: res.data.user.name,
           email: res.data.user.email,
@@ -48,7 +48,7 @@ const EditUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/admin/users/${id}/update`, formData);
+      await axiosInstance.put(`/admin/users/${id}/update`, formData);
       setMessage({ type: "success", text: "User updated successfully!" });
       setTimeout(() => navigate("/view-users"), 1500);
     } catch (err) {

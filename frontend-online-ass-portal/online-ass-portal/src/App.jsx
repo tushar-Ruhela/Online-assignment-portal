@@ -9,12 +9,17 @@ import UserList from "./pages/UserList";
 import StudentDashboard from "./pages/StudentDashboard";
 import DepartmentsList from "./pages/DepartmentsList";
 import EditDepartment from "./pages/EditDepartment"
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import UploadAssignment from "./pages/UploadAssignment";
+import MyAssignments from "./pages/MyAssignments";
+import AssignmentDetails from "./pages/AssignmentDetails";
 function App() {
   return (
     
       <Routes>
         <Route path="/" element={<Login/>} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin-dashboard" element={<Dashboard />} />
         <Route path="/create-department" element={<CreateDepartment />} />
         <Route path="/create-user" element={<CreateUser />} />
         <Route path="/view-users" element={<ViewUsers />} />
@@ -23,6 +28,12 @@ function App() {
         <Route path="/departments-list" element={<DepartmentsList />} /> 
  <Route path="/student-dashboard" element={<StudentDashboard />} />
  <Route path="admin/departments/edit/:id"element={<EditDepartment/>}/>
+ <Route path="forgot-password" element={<ForgotPassword/>} />
+  <Route path="reset-password" element={<ResetPassword/>} />
+<Route path="/upload-assignment" element={<UploadAssignment />} />
+<Route path="/my-assignments" element={<MyAssignments />} />
+<Route path="/assignment/:id" element={<AssignmentDetails />} />
+
       </Routes>
     
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../api/axiosInstance";
 
 const CreateUser = () => {
   const [formData, setFormData] = useState({
@@ -15,8 +15,8 @@ const CreateUser = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/admin/users/departments")
+    axiosInstance
+      .get("/admin/users/departments")
       .then((res) => setDepartments(res.data))
       .catch(() => setMessage("Failed to load departments"));
   }, []);
@@ -30,7 +30,7 @@ const CreateUser = () => {
     setMessage("");
 
     try {
-      const res = await axios.post("http://localhost:5000/admin/users/create", formData);
+      const res = await axiosInstance.post("/admin/users/create", formData);
       setMessage(res.data.message);
       setFormData({
         name: "",

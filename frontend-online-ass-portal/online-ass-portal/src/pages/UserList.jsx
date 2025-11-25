@@ -7,7 +7,7 @@ const UserList = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axiosInstance.get("http://localhost:5000/admin/users");
+      const res = await axiosInstance.get("/admin/users");
       setUsers(res.data.users);
       console.log(res.data.users);
     } catch (err) {
@@ -24,7 +24,7 @@ const UserList = () => {
     if (!confirm) return;
 
     try {
-      const res = await axiosInstance.delete(`http://localhost:5000/admin/users/${id}`);
+      const res = await axiosInstance.delete(`/admin/users/${id}`);
       setMessage(res.data.message);
       setUsers(users.filter((user) => user._id !== id));
     } catch (err) {
