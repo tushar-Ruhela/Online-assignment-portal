@@ -31,24 +31,26 @@ export default function CreateDepartment() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-emerald-50 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-purple-900 mb-2">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-2">
               Create Department
             </h2>
-            <p className="text-purple-600">Add a new department to the system</p>
+            <p className="text-sm sm:text-base text-emerald-600">
+              Add a new department to the system
+            </p>
           </div>
 
           {/* Form Card */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8 border border-purple-200">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-white rounded-2xl shadow-xl border-2 border-emerald-100 p-6 sm:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
               {/* Department Name Input */}
               <div>
                 <label 
                   htmlFor="name" 
-                  className="block text-sm font-semibold text-purple-900 mb-2"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
                 >
                   Department Name
                 </label>
@@ -60,7 +62,7 @@ export default function CreateDepartment() {
                   value={form.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-gray-900 hover:border-purple-300"
+                  className="w-full px-4 py-3 border-2 border-emerald-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 placeholder-gray-400 text-gray-900 hover:border-emerald-300 text-sm sm:text-base"
                 />
               </div>
 
@@ -68,7 +70,7 @@ export default function CreateDepartment() {
               <div>
                 <label 
                   htmlFor="type" 
-                  className="block text-sm font-semibold text-purple-900 mb-2"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
                 >
                   Program Type
                 </label>
@@ -79,7 +81,7 @@ export default function CreateDepartment() {
                     value={form.type}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-gray-900 appearance-none cursor-pointer hover:border-purple-300 bg-white"
+                    className="w-full px-4 py-3 border-2 border-emerald-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 text-gray-900 appearance-none cursor-pointer hover:border-emerald-300 bg-white text-sm sm:text-base"
                   >
                     <option value="" disabled className="text-gray-400">
                       Select Program Type
@@ -89,7 +91,7 @@ export default function CreateDepartment() {
                     <option value="Research" className="text-gray-900">Research</option>
                   </select>
                   {/* Custom Dropdown Arrow */}
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-purple-600">
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-emerald-600">
                     <svg 
                       className="h-5 w-5" 
                       xmlns="http://www.w3.org/2000/svg" 
@@ -110,7 +112,7 @@ export default function CreateDepartment() {
               <div>
                 <label 
                   htmlFor="address" 
-                  className="block text-sm font-semibold text-purple-900 mb-2"
+                  className="block text-sm font-semibold text-gray-700 mb-2"
                 >
                   Department Address
                 </label>
@@ -122,15 +124,15 @@ export default function CreateDepartment() {
                   onChange={handleChange}
                   required
                   rows="3"
-                  className="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 text-gray-900 resize-none hover:border-purple-300"
+                  className="w-full px-4 py-3 border-2 border-emerald-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-200 placeholder-gray-400 text-gray-900 resize-none hover:border-emerald-300 text-sm sm:text-base"
                 />
               </div>
 
               {/* Submit Button */}
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold py-3 px-6 rounded-lg hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="w-full bg-emerald-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base"
                 >
                   Create Department
                 </button>
@@ -141,7 +143,7 @@ export default function CreateDepartment() {
                 <button
                   type="button"
                   onClick={() => navigate("/departments-list")}
-                  className="w-full bg-white text-purple-700 font-semibold py-3 px-6 rounded-lg border-2 border-purple-300 hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-200"
+                  className="w-full bg-white text-emerald-700 font-semibold py-3 px-6 rounded-lg border-2 border-emerald-300 hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-200 text-sm sm:text-base"
                 >
                   View All Departments
                 </button>
@@ -150,15 +152,15 @@ export default function CreateDepartment() {
 
             {/* Message Display */}
             {message && (
-              <div className="mt-6 p-4 bg-purple-100 border-l-4 border-purple-500 rounded-r-lg shadow-md animate-fade-in">
-                <p className="text-purple-800 font-medium">{message}</p>
+              <div className="mt-6 p-4 bg-emerald-100 border-l-4 border-emerald-600 rounded-r-lg shadow-md">
+                <p className="text-emerald-800 font-medium text-sm sm:text-base">{message}</p>
               </div>
             )}
           </div>
 
           {/* Helper Text */}
           <div className="mt-6 text-center">
-            <p className="text-sm text-purple-600">
+            <p className="text-xs sm:text-sm text-emerald-600">
               All fields are required to create a new department
             </p>
           </div>

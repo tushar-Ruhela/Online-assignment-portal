@@ -1,42 +1,43 @@
 import mongoose from "mongoose";
 
+const historySchema = new mongoose.Schema({
+  reviewer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
+  action: String, // submitted / approved / rejected
+  remark: String,
+  date: { type: Date, default: Date.now }
+});
+
 const assignmentSchema = new mongoose.Schema({
-  title: { type: String, required: true },
+  title: String,
   description: String,
   category: String,
   fileUrl: String,
+
   status: {
     type: String,
     enum: ["draft", "submitted", "approved", "rejected"],
-    default: "draft"
+    default: "draft",
   },
-  history: [
-  {
-    action: String,           
-    remark: String,
-    reviewer: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    date: {
-      type: Date,
-      default: Date.now,
-    },
-    signature: String,        // optional signature image/file
-  }
-]
-,
-  reviewer: {
+
+  student: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    default: null
+    required: true
   },
-  isLocked: {
-  type: Boolean,
-  default: false,
-},
-  student: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  createdAt: { type: Date, default: Date.now }
+
+  reviewer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User" // ✅ Professor
+  },
+
+  submittedAt: Date,
+
+  history: [historySchema],
+
+  createdAt: { type: Date, default: Date.now },
 });
 
 export default mongoose.model("Assignment", assignmentSchema);

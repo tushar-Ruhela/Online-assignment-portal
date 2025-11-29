@@ -12,6 +12,8 @@ export const loginUser = async (req, res) => {
     const { email, password, role } = req.body;
 
     console.log(email,password,role);
+
+
     if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD && role === "Admin") {
       const token = jwt.sign({ id: "admin001", role: "Admin" }, process.env.secret, {
         expiresIn: "1d",
@@ -27,6 +29,7 @@ export const loginUser = async (req, res) => {
 
     
     const user = await User.findOne({ email });
+    console.log(user)
     if (!user) return res.status(404).json({ message: "User not found" });
 
     if (user.role !== role)
@@ -100,9 +103,14 @@ export const resetPassword = async (req, res) => {
       return res.status(400).json({ message: "OTP expired" });
 
     
-    user.password = await bcrypt.hash(newPassword, 10);
+    // user.password = await bcrypt.hash(newPassword, 10);
+    user.password = newPassword
+
     user.resetOTP = null;
     user.resetOTPExpiration = null;
+
+    console.log(user)
+
     await user.save();
 
    

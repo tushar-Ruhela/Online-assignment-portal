@@ -10,10 +10,10 @@ import StudentDashboard from "./pages/StudentDashboard";
 import DepartmentsList from "./pages/DepartmentsList";
 import EditDepartment from "./pages/EditDepartment"
 import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
 import UploadAssignment from "./pages/UploadAssignment";
 import MyAssignments from "./pages/MyAssignments";
 import AssignmentDetails from "./pages/AssignmentDetails";
+import ProfessorDashboard from "./pages/ProfessorDashboard";
 function App() {
   return (
     
@@ -28,12 +28,12 @@ function App() {
         <Route path="/departments-list" element={<DepartmentsList />} /> 
  <Route path="/student-dashboard" element={<StudentDashboard />} />
  <Route path="admin/departments/edit/:id"element={<EditDepartment/>}/>
- <Route path="forgot-password" element={<ForgotPassword/>} />
-  <Route path="reset-password" element={<ResetPassword/>} />
+ <Route path="/forgot-password" element={<ForgotPassword/>} />
+  
 <Route path="/upload-assignment" element={<UploadAssignment />} />
 <Route path="/my-assignments" element={<MyAssignments />} />
 <Route path="/assignment/:id" element={<AssignmentDetails />} />
-
+<Route path="/professor-dashboard" element={<ProfessorDashboard/>}/>
       </Routes>
     
   );
